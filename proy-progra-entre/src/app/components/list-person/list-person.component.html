@@ -1,0 +1,10 @@
+<div class="persons">
+  <div class="person" *ngFor="let person of persons">
+      <div class="info">
+          <p>Nombre: {{person.name}}</p>
+          <p>Apellido: {{person.lastName}}</p>
+          <p>Cargo: {{person.typePerson}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(person)">Borrar</button>
+      </div>
+  </div>
+</div>
