@@ -1,0 +1,10 @@
+<div class="persons">
+  <div class="person" *ngFor="let driver of drivers">
+      <div class="info">
+          <p>Nombre: {{driver.name | camelCase}}</p>
+          <p>Apellido: {{driver.lastName | camelCase}}</p>
+          <p>Cargo: {{driver.typePerson | camelCase}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(driver)">Borrar</button>
+      </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@ import { InformesComponent } from './components/informes/informes.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { ListPersonComponent } from './components/list-person/list-person.component';
+import { AddDriverComponent } from './components/add-driver/add-driver.component';
+import { ListDriverComponent } from './components/list-driver/list-driver.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'gestion-programacion', component: GestionProgramacionComponent },
   { path: 'informes', component: InformesComponent },
   { path: 'personal/agregar-persona', component: AddPersonComponent },
+  { path: 'personal/agregar-conductor', component: AddDriverComponent },
   { path: 'personal/listar-persona', component: ListPersonComponent },
+  { path: 'personal/listar-conductor', component: ListDriverComponent },
   { path: '', redirectTo: '/programacion', pathMatch: 'full' }, // Página predeterminada
 ];
 

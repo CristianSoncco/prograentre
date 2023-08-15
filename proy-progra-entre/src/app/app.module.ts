@@ -17,6 +17,9 @@ import { InformesComponent } from './components/informes/informes.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { ListPersonComponent } from './components/list-person/list-person.component';
+import { AddDriverComponent } from './components/add-driver/add-driver.component';
+import { ListDriverComponent } from './components/list-driver/list-driver.component';
+import { CamelCasePipe } from 'src/app/pipes/camel-case.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ListPersonComponent } from './components/list-person/list-person.compon
     InformesComponent,
     NavbarComponent,
     AddPersonComponent,
+    AddDriverComponent,
     ListPersonComponent,
+    ListDriverComponent,
+    CamelCasePipe
   ],
   imports: [
     NgbModule,
