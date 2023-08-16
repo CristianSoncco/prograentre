@@ -1,0 +1,10 @@
+<div class="persons">
+  <div class="person" *ngFor="let assistant of assistants">
+      <div class="info">
+          <p>Nombre: {{assistant.name | camelCase}}</p>
+          <p>Apellido: {{assistant.lastName | camelCase}}</p>
+          <p>Cargo: {{assistant.typePerson | camelCase}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(assistant)">Borrar</button>
+      </div>
+  </div>
+</div>

@@ -30,14 +30,4 @@ export class ListDriverComponent implements OnInit {
     console.log(response);
   }
 
-  convertToCamelCase(inputText: string): string {
-    const words = inputText.trim().split(/\s+/);
-    const camelCaseWords = words.map((word, index) => {
-      // if (index === 0) {
-      //   return word.toLowerCase();
-      // }
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    });
-    return camelCaseWords.join('');
-  }
 }
