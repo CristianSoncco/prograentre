@@ -1,0 +1,10 @@
+<div class="persons">
+  <div class="person" *ngFor="let vehicle of vehicles">
+      <div class="info">
+          <p>Placa: {{vehicle.plate | camelCase}}</p>
+          <p>Tipo de Vehiculo: {{vehicle.typeVehicle | camelCase}}</p>
+          <p>Observación: {{vehicle.observation | camelCase}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(vehicle)">Borrar</button>
+      </div>
+  </div>
+</div>

@@ -22,6 +22,10 @@ import { ListDriverComponent } from './components/list-driver/list-driver.compon
 import { CamelCasePipe } from 'src/app/pipes/camel-case.pipe';
 import { AddAssistantComponent } from './components/add-assistant/add-assistant.component';
 import { ListAssistantComponent } from './components/list-assistant/list-assistant.component';
+import { AddTypeVehicleComponent } from './components/add-typeVehicle/add-typeVehicle.component';
+import { ListVehicleComponent } from './components/list-vehicle/list-vehicle.component';
+import { AddVehicleComponent } from './components/add-Vehicle/add-vehicle.component';
+import { ListTypeVehicleComponent } from './components/list-typeVehicle/list-typeVehicle.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +40,13 @@ import { ListAssistantComponent } from './components/list-assistant/list-assista
     AddPersonComponent,
     AddDriverComponent,
     AddAssistantComponent,
+    AddTypeVehicleComponent,
+    AddVehicleComponent,
     ListPersonComponent,
     ListDriverComponent,
     ListAssistantComponent,
+    ListTypeVehicleComponent,
+    ListVehicleComponent,
     CamelCasePipe
   ],
   imports: [

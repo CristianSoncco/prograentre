@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Agregar datos de Tipo de Vehiculo</h2>
+  <form [formGroup]="formulario1" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Tipo de Vehiculo:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="nuevo.name"
+      formControlName="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <div *ngIf="formulario1.controls['name'].invalid && (formulario1.controls['name'].dirty || formulario1.controls['name'].touched)">
+        <div *ngIf="formulario1.controls['name'].errors?.['required']">Debe escribir el Tipo de Vehiculo.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar Tipo de Vehiculo</button>
+  </form>
+</div>

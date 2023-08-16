@@ -1,0 +1,8 @@
+<div class="persons">
+  <div class="person" *ngFor="let typeVehicle of typeVehicles">
+      <div class="info">
+          <p>Tipo de vehiculo: {{typeVehicle.name | camelCase}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(typeVehicle)">Borrar</button>
+      </div>
+  </div>
+</div>

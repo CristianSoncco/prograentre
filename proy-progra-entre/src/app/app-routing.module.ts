@@ -13,6 +13,10 @@ import { AddDriverComponent } from './components/add-driver/add-driver.component
 import { ListDriverComponent } from './components/list-driver/list-driver.component';
 import { AddAssistantComponent } from './components/add-assistant/add-assistant.component';
 import { ListAssistantComponent } from './components/list-assistant/list-assistant.component';
+import { AddTypeVehicleComponent } from './components/add-typeVehicle/add-typeVehicle.component';
+import { AddVehicleComponent } from './components/add-Vehicle/add-vehicle.component';
+import { ListVehicleComponent } from './components/list-vehicle/list-vehicle.component';
+import { ListTypeVehicleComponent } from './components/list-typeVehicle/list-typeVehicle.component';
 
 const routes: Routes = [
   { path: 'programacion', component: ProgramacionComponent },
@@ -24,9 +28,13 @@ const routes: Routes = [
   { path: 'personal/agregar-persona', component: AddPersonComponent },
   { path: 'personal/agregar-conductor', component: AddDriverComponent },
   { path: 'personal/agregar-auxiliar', component: AddAssistantComponent },
+  { path: 'personal/agregar-tipoVehiculo', component: AddTypeVehicleComponent },
+  { path: 'personal/agregar-vehiculo', component: AddVehicleComponent },
   { path: 'personal/listar-persona', component: ListPersonComponent },
   { path: 'personal/listar-conductor', component: ListDriverComponent },
   { path: 'personal/listar-auxiliar', component: ListAssistantComponent },
+  { path: 'personal/listar-tipoVehiculo', component: ListTypeVehicleComponent },
+  { path: 'personal/listar-vehiculo', component: ListVehicleComponent },
   { path: '', redirectTo: '/programacion', pathMatch: 'full' }, // Página predeterminada
 ];
 
