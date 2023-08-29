@@ -1,23 +1,34 @@
-<nav>
-  <ul class="navbar">
-    <li><a routerLink="/programacion">Página de Programación</a></li>
-    <li><a routerLink="/personal">Datos</a>
-      <ul class="submenu">
-        <li><a routerLink="/personal/agregar-persona">Agregar Persona</a></li>
-        <li><a routerLink="/personal/listar-persona">Listado de Personas</a></li>
-        <li><a routerLink="/personal/agregar-conductor">Agregar Conductor</a></li>
-        <li><a routerLink="/personal/listar-conductor">Listado de Conductor</a></li>
-        <li><a routerLink="/personal/agregar-auxiliar">Agregar Auxiliar</a></li>
-        <li><a routerLink="/personal/listar-auxiliar">Listado de Auxiliar</a></li>
-        <li><a routerLink="/personal/agregar-tipoVehiculo">Agregar Tipo de Vehiculo</a></li>
-        <li><a routerLink="/personal/listar-tipoVehiculo">Listado de Tipos de Vehiculos</a></li>
-        <li><a routerLink="/personal/agregar-vehiculo">Agregar Vehiculo</a></li>
-        <li><a routerLink="/personal/listar-vehiculo">Listado de Vehiculos</a></li>
-      </ul>
-    </li>
-    <li><a routerLink="/pedidos">Página de Pedidos</a></li>
-    <li><a routerLink="/generar-programacion">Generar Programación</a></li>
-    <li><a routerLink="/gestion-programacion">Gestión de Programación</a></li>
-    <li><a routerLink="/informes">Informes</a></li>
-  </ul>
-</nav>
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="dropdownBasic1"  routerLink="/programacion">Programación</button>
+  <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Datos</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+    <button ngbDropdownItem routerLink="/personal/agregar-conductor">Agregar Conductor</button>
+    <button ngbDropdownItem routerLink="/personal/listar-conductor">Listado de Conductor</button>
+    <div class="dropdown-divider"></div>
+    <button ngbDropdownItem routerLink="/personal/agregar-auxiliar">Agregar Auxiliar</button>
+
+
+    <button ngbDropdownItem routerLink="/personal/listar-auxiliar">Listado de Auxiliar</button>
+    <div class="dropdown-divider"></div>
+    <button ngbDropdownItem routerLink="/personal/agregar-auxiliar" routerLink="/personal/agregar-tipoVehiculo">Agregar Tipo de Vehiculo</button>
+
+
+    <button ngbDropdownItem routerLink="/personal/agregar-auxiliar" routerLink="/personal/listar-tipoVehiculo">Listado de Tipos de Vehiculos</button>
+    <div class="dropdown-divider"></div>
+    <button ngbDropdownItem routerLink="/personal/agregar-auxiliar" routerLink="/personal/agregar-vehiculo">Agregar Vehiculo</button>
+
+    <button ngbDropdownItem routerLink="/personal/agregar-auxiliar" routerLink="/personal/listar-vehiculo">Listado de Vehiculos</button>
+    <div class="dropdown-divider"></div>
+    <button ngbDropdownItem routerLink="/personal/agregar-conductor">Agregar Conductor</button>
+    <button ngbDropdownItem routerLink="/personal/listar-conductor">Listado de Conductor</button>
+
+  </div>
+
+  <button class="btn btn-outline-primary" id="dropdownBasic3"  routerLink="/pedidos">Página de Pedidos</button>
+
+  <button class="btn btn-outline-primary" id="dropdownBasic4"  routerLink="/generar-programacion">Generar Programación</button>
+
+  <button class="btn btn-outline-primary" id="dropdownBasic5"  routerLink="/gestion-programacion">Gestión de Programación</button>
+  <button class="btn btn-outline-primary" id="dropdownBasic6"  routerLink="/informes">Informes</button>
+
+</div>
