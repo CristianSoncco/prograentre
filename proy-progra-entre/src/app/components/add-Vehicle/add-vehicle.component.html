@@ -6,10 +6,17 @@
       <input type="text" class="form-control" id="plate" [(ngModel)]="nuevo.plate"
       formControlName="plate" name="plate" required>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="nombre">Tipo de vehiculo:</label>
       <input type="text" class="form-control" id="typeVehicle" [(ngModel)]="nuevo.typeVehicle"
       formControlName="typeVehicle" name="typeVehicle" required>
+    </div> -->
+    <div class="form-group">
+      <label for="nombre">Tipo de vehiculo:</label>
+      <select type="text" class="form-control"  id="typeVehicle" [(ngModel)]="nuevo.typeVehicle"
+      formControlName="typeVehicle" name="typeVehicle" required>
+        <option *ngFor="let type of typeVehicles">{{ type.name }}</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="nombre">camion/moto:</label>

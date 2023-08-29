@@ -1,1 +1,88 @@
-<p>programacion works!</p>
+<div >
+  <h2>Generación de Programación</h2>
+</div>
+
+<form class="custom-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<div class="form-row">
+  <div class="col-md-4 mb-3">
+    <label for="fecha">Nombre de Programación:</label>
+    <input type="text" [(ngModel)]="nombreProgramacion" placeholder="Ingresa texto">
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="fecha">Fecha:</label>
+    <input
+      type="text"
+
+      placeholder="Seleccione una fecha"
+      [(ngModel)]="selectedDate"
+      ngbDatepicker
+      #datepicker="ngbDatepicker"
+      (click)="datepicker.toggle()"
+      (ngModelChange)="onDateSelected($event);">
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col-md-4 mb-3">
+  <label for="vehiculo">Vehiculo:</label>
+  <input type="text" id="vehiculo" formControlName="vehiculo">
+  <div *ngIf="userForm.controls['vehiculo'].invalid && (userForm.controls['vehiculo'].dirty || userForm.controls['vehiculo'].touched)">
+    El vehiculo es requerido.
+  </div>
+</div>
+
+
+<div class="col-md-4 mb-3">
+  <label for="conductor">Conductor:</label>
+  <input type="text" id="conductor" formControlName="conductor">
+</div>
+</div>
+
+
+<div class="form-row">
+  <div class="col-md-4 mb-3">
+  <label for="auxiliar1">Auxiliar1:</label>
+  <input type="text" id="auxiliar1" formControlName="auxiliar1">
+</div>
+
+
+<div class="col-md-4 mb-3">
+  <label for="auxiliar2">Auxiliar2:</label>
+  <input type="text" id="auxiliar2" formControlName="auxiliar2">
+</div>
+</div>
+
+
+<div class="form-row">
+  <div class="col-md-4 mb-3">
+  <label for="servicio">Servicio:</label>
+  <input type="text" id="servicio" formControlName="servicio">
+</div>
+
+<div class="col-md-4 mb-3">
+  <label for="primerPunto">Primer Punto:</label>
+  <input type="text" id="primerPunto" formControlName="primerPunto">
+</div>
+</div>
+
+
+<div class="form-row">
+  <div class="col-md-4 mb-3">
+  <label for="segundoPunto">Segundo Punto:</label>
+  <input type="text" id="segundoPunto" formControlName="segundoPunto">
+</div>
+
+<div class="col-md-4 mb-3">
+  <label for="mensaje">Mensaje:</label>
+  <input type="text" id="mensaje" formControlName="mensaje">
+</div>
+</div>
+
+<div>
+  <label for="nota">Nota:</label>
+  <input type="text" id="nota" formControlName="nota">
+</div>
+
+<button type="submit" [disabled]="userForm.invalid" class="submit-button">Enviar</button>
+</form>
+

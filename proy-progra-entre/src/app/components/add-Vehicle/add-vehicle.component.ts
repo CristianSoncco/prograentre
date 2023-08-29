@@ -3,6 +3,7 @@ import { Vehicle } from '../../interfaces/vehicle.interface';
 import { FormControl, FormGroup, Validators, FormBuilder  } from '@angular/forms';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { TypeVehicleService } from 'src/app/services/typeVehicle.service';
+import { TypeVehicle } from 'src/app/interfaces/typeVehicle.interface';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -11,6 +12,7 @@ import { TypeVehicleService } from 'src/app/services/typeVehicle.service';
 })
 export class AddVehicleComponent implements OnInit {
   formulario1: FormGroup;
+  typeVehicles:TypeVehicle[] = [];
 
   constructor(
     private VehicleService: VehicleService,
@@ -24,7 +26,11 @@ export class AddVehicleComponent implements OnInit {
   }
 
 ngOnInit(): void {
-
+  this.TypeVehicleService.getTypeVehicles().subscribe(
+    (typeVehicles) => {
+      this.typeVehicles = typeVehicles;
+    }
+  )
 }
   nuevo: Vehicle = { plate: 'Placa', typeVehicle:'Clasificado',observation:'CAMION' };
 
