@@ -2,29 +2,31 @@
   <h2>Generación de Programación</h2>
 </div>
 <body>
-<form class="formulario" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form class="custom-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
   <div class="input-grid">
     <div class="input-group">
-      <label for="fecha">Nombre:</label>
-      <input type="text" [(ngModel)]="nombreProgramacion" placeholder="Ingresa texto">
+      <label for="name">Nombre:</label>
+      <input type="text" class="form-control" [(ngModel)]="nuevo.name" placeholder="Ingresa texto"
+      formControlName="name" name="name" required>
     </div>
     <div class="input-group">
       <label for="fecha">Fecha:</label>
       <input
         type="text"
-
+        formControlName="date"
         placeholder="Seleccione una fecha"
-        [(ngModel)]="selectedDate"
+        [(ngModel)]="nuevo.date"
         ngbDatepicker
         #datepicker="ngbDatepicker"
         (click)="datepicker.toggle()"
-        (ngModelChange)="onDateSelected($event);">
+        (ngModelChange)="onDateSelected($event);"
+        name="date">
     </div>
     <div class="input-group">
-      <label for="vehiculo">Vehiculo:</label>
-      <input type="text" id="vehiculo" formControlName="vehiculo">
-      <div *ngIf="userForm.controls['vehiculo'].invalid && (userForm.controls['vehiculo'].dirty || userForm.controls['vehiculo'].touched)">
+      <label for="vehicle">Vehiculo:</label>
+      <input type="text" id="vehicle" formControlName="vehicle">
+      <div *ngIf="userForm.controls['vehicle'].invalid && (userForm.controls['vehicle'].dirty || userForm.controls['vehicle'].touched)">
         El vehiculo es requerido.
       </div>
     </div>
@@ -32,44 +34,52 @@
 
   <div class="input-grid">
     <div class="input-group">
-      <label for="conductor">Conductor:</label>
-      <input type="text" id="conductor" formControlName="conductor">
+      <label for="driver">Conductor:</label>
+      <input type="text" id="driver" formControlName="driver" id="driver" [(ngModel)]="nuevo.driver"
+       name="driver" required>
     </div>
     <div class="input-group">
-    <label for="auxiliar1">Auxiliar1:</label>
-    <input type="text" id="auxiliar1" formControlName="auxiliar1">
+    <label for="aux1">Auxiliar1:</label>
+    <input type="text" id="aux1" formControlName="aux1" id="aux1" [(ngModel)]="nuevo.aux1"
+     name="aux1" required>
   </div>
     <div class="input-group">
-    <label for="auxiliar2">Auxiliar2:</label>
-    <input type="text" id="auxiliar2" formControlName="auxiliar2">
+    <label for="aux2">Auxiliar2:</label>
+    <input type="text" id="aux2" formControlName="aux2" id="aux2" [(ngModel)]="nuevo.aux2"
+    name="aux2" required>
   </div>
 
   </div>
 
   <div class="input-grid">
     <div class="input-group">
-    <label for="servicio">Servicio:</label>
-    <input type="text" id="servicio" formControlName="servicio">
+    <label for="service">Servicio:</label>
+    <input type="text" id="service" formControlName="service" id="service" [(ngModel)]="nuevo.service"
+    name="service" required>
   </div>
     <div class="input-group">
-    <label for="primerPunto">Primer Punto:</label>
-    <input type="text" id="primerPunto" formControlName="primerPunto">
+    <label for="firstPoint">Primer Punto:</label>
+    <input type="text" id="firstPoint" formControlName="firstPoint" id="firstPoint" [(ngModel)]="nuevo.firstPoint"
+    name="firstPoint" required>
   </div>
     <div class="input-group">
-    <label for="segundoPunto">Segundo Punto:</label>
-    <input type="text" id="segundoPunto" formControlName="segundoPunto">
+    <label for="secondPoint">Segundo Punto:</label>
+    <input type="text" id="secondPoint" formControlName="secondPoint" id="secondPoint" [(ngModel)]="nuevo.firstPoint"
+    name="secondPoint" required>
   </div>
 
   </div>
 
   <div class="input-grid">
     <div class="input-group">
-    <label for="mensaje">Mensaje:</label>
-    <input type="text" id="mensaje" formControlName="mensaje">
+    <label for="menssage">Mensaje:</label>
+    <input type="text" id="menssage" formControlName="menssage" id="menssage" [(ngModel)]="nuevo.menssage"
+    name="menssage" required>
   </div>
     <div class="input-group">
-    <label for="nota">Nota:</label>
-    <input type="text" id="nota" formControlName="nota">
+    <label for="note">Nota:</label>
+    <input type="text" id="note" formControlName="note" id="note" [(ngModel)]="nuevo.note"
+    name="note" required>
   </div>
   </div>
 
