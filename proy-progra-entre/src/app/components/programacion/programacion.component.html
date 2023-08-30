@@ -25,28 +25,40 @@
     </div>
     <div class="input-group">
       <label for="vehicle">Vehiculo:</label>
-      <input type="text" id="vehicle" formControlName="vehicle">
+      <select type="text" id="vehicle" formControlName="vehicle" id="vehicle" [(ngModel)]="nuevo.vehicle"
+      name="vehicle">
+      <option *ngFor="let vehicle of vehicles">{{ vehicle.plate }}</option>
+    </select>
       <div *ngIf="userForm.controls['vehicle'].invalid && (userForm.controls['vehicle'].dirty || userForm.controls['vehicle'].touched)">
         El vehiculo es requerido.
       </div>
+
     </div>
   </div>
 
   <div class="input-grid">
+
     <div class="input-group">
       <label for="driver">Conductor:</label>
-      <input type="text" id="driver" formControlName="driver" id="driver" [(ngModel)]="nuevo.driver"
+      <select type="text" id="driver" formControlName="driver" id="driver" [(ngModel)]="nuevo.driver"
        name="driver" required>
+       <option *ngFor="let driver of drivers">{{ driver.name }}</option>
+      </select>
     </div>
+
     <div class="input-group">
     <label for="aux1">Auxiliar1:</label>
-    <input type="text" id="aux1" formControlName="aux1" id="aux1" [(ngModel)]="nuevo.aux1"
+    <select type="text" id="aux1" formControlName="aux1" id="aux1" [(ngModel)]="nuevo.aux1"
      name="aux1" required>
+     <option *ngFor="let assistant of assistants">{{ assistant.name }}</option>
+    </select>
   </div>
     <div class="input-group">
     <label for="aux2">Auxiliar2:</label>
-    <input type="text" id="aux2" formControlName="aux2" id="aux2" [(ngModel)]="nuevo.aux2"
+    <select type="text" id="aux2" formControlName="aux2" id="aux2" [(ngModel)]="nuevo.aux2"
     name="aux2" required>
+    <option *ngFor="let assistant of assistants">{{ assistant.name }}</option>
+  </select>
   </div>
 
   </div>
@@ -84,5 +96,22 @@
   </div>
 
 <button type="submit" [disabled]="userForm.invalid" class="submit-button">Guardar Programación</button>
+
+
+
+
+<div>
+  <ul>
+    <li
+      *ngFor="let item of items; let i = index"
+      cdkDrag
+      (cdkDragMoved)="onItemMoved($event)"
+    >
+      {{ item }}
+    </li>
+  </ul>
+</div>
+
+
 </form>
 </body>

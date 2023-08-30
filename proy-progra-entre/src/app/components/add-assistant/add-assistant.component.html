@@ -2,12 +2,12 @@
   <h2>Agregar datos de Auxiliar</h2>
   <form [formGroup]="formulario1" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="nombre">Nombre:</label>
+      <label for="name">Nombre:</label>
       <input type="text" class="form-control" id="name" [(ngModel)]="nuevo.name"
       formControlName="name" name="name" required>
     </div>
     <div class="form-group">
-      <label for="edad">Apellido:</label>
+      <label for="lastName">Apellido:</label>
       <input type="text" class="form-control" id="lastName" [(ngModel)]="nuevo.lastName"
       formControlName="lastName" name="lastName" required>
     </div>

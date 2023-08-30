@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import { Scheduling } from 'src/app/interfaces/scheduling.interface';
 import { SchedulingService } from 'src/app/services/scheduling.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
+import { Vehicle } from 'src/app/interfaces/vehicle.interface';
+import { DriverService } from 'src/app/services/driver.service';
+import { Driver } from 'src/app/interfaces/driver.interface';
+import { AssistantService } from 'src/app/services/assistant.service';
+import { Assistant } from 'src/app/interfaces/assistant.interface';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-programacion',
@@ -17,11 +22,18 @@ export class ProgramacionComponent implements OnInit {
   userForm: FormGroup;
   scheduling:Scheduling[] = [];
   vehiculo:string = "";
+  vehicles:Vehicle[] = [];
+  drivers:Driver[] = [];
+  assistants:Assistant[] = [];
+  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
 
   constructor(private calendar: NgbCalendar,
      private formBuilder: FormBuilder,
-     private schedulingService: SchedulingService
+     private schedulingService: SchedulingService,
+     private vehicleService: VehicleService,
+     private driverService: DriverService,
+     private assistantService: AssistantService
      ) {
 
       this.userForm = new FormGroup({
@@ -50,6 +62,24 @@ export class ProgramacionComponent implements OnInit {
       }
     )
 
+
+    this.driverService.getDrivers().subscribe(
+      (drivers) => {
+        this.drivers = drivers;
+      }
+    )
+
+    this.vehicleService.getVehicles().subscribe(
+      (vehicles) => {
+        this.vehicles = vehicles;
+      }
+    )
+
+    this.assistantService.getAssistants().subscribe(
+      (assistants) => {
+        this.assistants = assistants;
+      }
+    )
   }
 
   onDateSelected(date: NgbDateStruct): void {
@@ -73,6 +103,7 @@ export class ProgramacionComponent implements OnInit {
 
   async onSubmit() {
     if (this.userForm.valid) {
+      this.addScheduling();
       console.log('Formulario válido', this.userForm.value);
       const response = await this.schedulingService.addScheduling(this.userForm.value);
       console.log(response);
@@ -80,4 +111,21 @@ export class ProgramacionComponent implements OnInit {
       console.log('Formulario inválido');
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+  onItemMoved(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+  }
+
+
+
 }
