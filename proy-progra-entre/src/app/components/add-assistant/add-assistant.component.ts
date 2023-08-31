@@ -10,6 +10,7 @@ import { AssistantService } from 'src/app/services/assistant.service';
 })
 export class AddAssistantComponent implements OnInit {
   formulario1: FormGroup;
+	successMessage = '';
 
   constructor(
     private assistantService: AssistantService
@@ -24,7 +25,7 @@ export class AddAssistantComponent implements OnInit {
 ngOnInit(): void {
 
 }
-  nuevo: Assistant = { name: 'Nombre', lastName: 'Apellido', typePerson: 'Conductor' };
+  nuevo: Assistant = { name: '', lastName: '', typePerson: 'Auxiliar' };
 
   agregarAuxiliar() {
     // Aquí puedes implementar la lógica para agregar la persona a una lista o enviarla a una API, por ejemplo
@@ -40,4 +41,11 @@ ngOnInit(): void {
     console.log(response);
   }
   }
+
+  public changeSuccessMessage() {
+    this.successMessage = 'Grabado!';
+    setTimeout(() => {
+      this.successMessage = '';
+    }, 4000);
+	}
 }
