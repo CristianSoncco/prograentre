@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Driver } from '../../interfaces/driver.interface';
 import { FormControl, FormGroup, Validators, FormBuilder  } from '@angular/forms';
 import { DriverService } from 'src/app/services/driver.service';
+import { NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-add-driver',
@@ -10,6 +12,7 @@ import { DriverService } from 'src/app/services/driver.service';
 })
 export class AddDriverComponent implements OnInit {
   formulario1: FormGroup;
+	successMessage = '';
 
   constructor(
     private driverService: DriverService
@@ -24,7 +27,7 @@ export class AddDriverComponent implements OnInit {
 ngOnInit(): void {
 
 }
-  nuevoConductor: Driver = { name: 'Nombre', lastName: 'Apellido', typePerson: 'Conductor' };
+  nuevoConductor: Driver = { name: '', lastName: '', typePerson: 'Conductor' };
 
   agregarConductor() {
     // Aquí puedes implementar la lógica para agregar la persona a una lista o enviarla a una API, por ejemplo
@@ -38,6 +41,14 @@ ngOnInit(): void {
     console.log(this.formulario1.value);
     const response = await this.driverService.addDriver(this.formulario1.value);
     console.log(response);
+
   }
   }
+
+  public changeSuccessMessage() {
+    this.successMessage = 'Grabado!';
+    setTimeout(() => {
+      this.successMessage = '';
+    }, 4000);
+	}
 }

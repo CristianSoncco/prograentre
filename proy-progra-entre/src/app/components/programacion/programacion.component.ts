@@ -9,7 +9,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { Driver } from 'src/app/interfaces/driver.interface';
 import { AssistantService } from 'src/app/services/assistant.service';
 import { Assistant } from 'src/app/interfaces/assistant.interface';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-programacion',
@@ -25,7 +25,7 @@ export class ProgramacionComponent implements OnInit {
   vehicles:Vehicle[] = [];
   drivers:Driver[] = [];
   assistants:Assistant[] = [];
-  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+
 
 
   constructor(private calendar: NgbCalendar,
@@ -116,15 +116,6 @@ export class ProgramacionComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-  onItemMoved(event: CdkDragDrop<string[]>): void {
-    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
-  }
 
 
 

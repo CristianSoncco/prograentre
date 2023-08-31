@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Agregar datos de Conductor</h2>
+  <h2>Agregar Conductor</h2>
   <form [formGroup]="formulario1" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
@@ -11,14 +11,17 @@
       <input type="text" class="form-control" id="lastName" [(ngModel)]="nuevoConductor.lastName"
       formControlName="lastName" name="lastName" required>
     </div>
-    <div class="form-group">
+    <div id="div-alert" class="form-group">
       <label for="email">Tipo:</label>
       <input type="text" class="form-control" id="typePerson" [(ngModel)]="nuevoConductor.typePerson"
       formControlName="typePerson" name="typePerson" required>
-      <div *ngIf="formulario1.controls['typePerson'].invalid && (formulario1.controls['typePerson'].dirty || formulario1.controls['typePerson'].touched)">
-        <div *ngIf="formulario1.controls['typePerson'].errors?.['required']">Debe escribir si es conductor.</div>
-      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Agregar Conductor</button>
+    <button type="submit" class="btn btn-primary" (click)="changeSuccessMessage()">Agregar Conductor</button>
+
+    <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''"
+    >{{ successMessage }}
+    </ngb-alert>
+
+
   </form>
 </div>
